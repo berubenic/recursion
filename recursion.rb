@@ -48,3 +48,35 @@ bottles(5)
 bottles(10)
 
 # function that takes an argument n and returns the fibonacci value of that position. The fibonacci sequence is 0, 1, 1, 2, 3, 5, 8, 13, 21... So fib(5) should return 5 and fib(6) should return 8.
+
+def fibonacci(n)
+  return 0 if n == 0
+  return 1 if n == 1
+
+  fibonacci(n - 1) + fibonacci(n - 2)
+end
+
+p fibonacci(0)
+p fibonacci(1)
+p fibonacci(2)
+p fibonacci(3)
+p fibonacci(4)
+p fibonacci(5)
+p fibonacci(6)
+
+# Define a recursive function that flattens an array. The method should convert [[1, 2], [3, 4]] to [1, 2, 3, 4] and [[1, [8, 9]], [3, 4]] to [1, 8, 9, 3, 4].
+
+def flatt(arr, flat_arr = [])
+  arr.each do |element|
+    if element.is_a?(Array)
+      flatt(element, flat_arr)
+    else
+      flat_arr << element
+    end
+  end
+  flat_arr
+end
+
+p flatt([1])
+p flatt([[1, 2], [3, 4]])
+p flatt([[1, [8, 9]], [3, 4]])
